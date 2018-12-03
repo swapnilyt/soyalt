@@ -50,7 +50,7 @@ async def botinvite(ctx):
 
 
 @client.command(pass_context=True)  
-@commands.has_permissions(kick_members=True)     
+@commands.check(is_owner)     
 async def kick(ctx,user:discord.Member):
     if user.server_permissions.kick_members:
       await client.say('**He is mod/admin and i am unable to kick him/her**')
