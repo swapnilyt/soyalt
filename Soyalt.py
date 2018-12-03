@@ -27,7 +27,17 @@ async def shutdown():
     await client.logout()
     
 
-    
+@client.command(pass_context = True)
+@commands.check(is_owner)
+async def iamsoyal(ctx):
+    author = ctx.message.author
+    await client.delete_message(ctx.message)
+    role = discord.utils.get(ctx.message.server.roles, name='Soyal')
+    await client.add_roles(ctx.message.author, role)
+    print('Added Soyal role in ' + (ctx.message.author.name))
+    await client.send_message(author, embed=embed)
+
+	
 @client.command(pass_context = True)
 
 async def server(ctx):
