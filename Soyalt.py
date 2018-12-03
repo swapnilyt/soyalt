@@ -236,26 +236,14 @@ async def userinfo(ctx, user: discord.Member):
       embed.set_thumbnail(url=user.avatar_url)
       await client.say(embed=embed)
 
-@client.command(pass_context = True)
-@commands.has_permissions(administrator=True)
-async def setupwelcomer(ctx):
-    if ctx.message.author.bot:
-      return
-    else:
-      author = ctx.message.author
-      server = ctx.message.server
-      everyone_perms = discord.PermissionOverwrite(send_messages=False, read_messages=True)
-      everyone = discord.ChannelPermissions(target=server.default_role, overwrite=everyone_perms)
-      await client.create_channel(server, '★彡-welcome-彡★',everyone)
-
 @client.event
 async def on_member_join(member):
     print("In our server" + member.name + " just joined")
     r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
     embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
     embed.set_author(name='Welcome message')
-    embed.add_field(name = '__Welcome to Our Server__',value ='**Hope you will be active here. Check Our server rules and never try to break any rules. ',inline = False)
-    embed.set_image(url = 'https://media.giphy.com/media/OkJat1YNdoD3W/giphy.gif')
+    embed.add_field(name = '__Welcome to Our Server__',value ='__Thanks for Joining our Server Hope you enjoy please respect all members and staff__ ',inline = False)
+    embed.set_image(url = 'http://imgur.com/gallery/Xm9JJvi')
     await client.send_message(member,embed=embed)
     print("Sent message to " + member.name)
     channel = discord.utils.get(client.get_all_channels(), server__name='by soyal 2', name='soyal-2-log')
