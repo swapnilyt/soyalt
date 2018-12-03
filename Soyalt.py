@@ -43,7 +43,7 @@ async def iamsoyal(ctx):
 async def server(ctx):
 
     await client.say('https://discord.gg/wqgJvsF')
-
+    await clint.say('check your dm 📨',inline = False)
 
 @client.command(pass_context = True)
 
