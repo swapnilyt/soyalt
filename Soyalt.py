@@ -105,6 +105,25 @@ async def stop(ctx):
 
     return await client.say("I am not playing anyting???!")
 
+        
+@client.command(pass_context = True)
+async def help(ctx):
+    if ctx.message.author.bot:
+      return
+    else:
+      author = ctx.message.author
+      r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
+      embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
+      embed.set_author(name='Help')
+      embed.set_image(url = 'https://image.ibb.co/caM2BK/help.gif')
+      embed.add_field(name = 'Having doubts? Join our server and clear your doubts. Server link:',value ='https://discord.gg/xJR6Bs9',inline = False)
+      embed.add_field(name = 'React with 📱 ',value ='Explaines all the commands',inline = False)
+      dmmessage = await client.send_message(author,embed=embed)
+      reaction1 = '📱'
+      await client.add_reaction(dmmessage, reaction1)
+      await client.say('📨 Check DMs For Information')
+
+
 @client.command(pass_context = True)
 async def happybirthday(ctx, *, msg = None):
     if '@here' in msg or '@everyone' in msg:
