@@ -57,7 +57,7 @@ async def botinvite(ctx):
 
     await client.say('https://discordapp.com/api/oauth2/authorize?client_id=518672070377209857&permissions=8&scope=bot')
 
-await clint.say (check your dm 📨 ,inline = True)
+await clint.say (check your dm 📨 ',inline = False)
 
 
 @client.command(pass_context=True)  
