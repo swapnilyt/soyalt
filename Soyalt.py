@@ -106,41 +106,6 @@ async def stop(ctx):
     return await client.say("I am not playing anyting???!")
 
         
-@client.command(pass_context = True)
-async def help(ctx):
-    if ctx.message.author.bot:
-      return
-    else:
-      author = ctx.message.author
-      r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
-      embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
-      embed.set_author(name='Help')
-      embed.set_image(url = 'https://image.ibb.co/caM2BK/help.gif')
-      embed.add_field(name = 'Having doubts? Join our server and clear your doubts. Server link:',value ='https://discord.gg/xJR6Bs9',inline = False)
-      embed.add_field(name = 'React with 📱 ',value ='Explaines all the commands',inline = False)
-      dmmessage = await client.send_message(author,embed=embed)
-      reaction1 = '📱'
-      await client.add_reaction(dmmessage, reaction1)
-      await client.say('📨 Check DMs For Information')
-
-@client.event
-async def on_reaction_add(reaction, user):
-  if reaction.message.server is None:
-      if reaction.emoji == '📱':
-        r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
-        embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
-        embed.add_field(name = 's!servee',value ='Sends server link',inline = False)
-        embed.add_field(name = 's!botinvite',value ='Use it to invite our bot to your server',inline = False)
-        embed.add_field(name = 's!kick',value ='Use kick @user',inline = False)
-        embed.add_field(name = 's!serverinfo',value ='Use it for check server owner and server roles',inline = False)
-        embed.add_field(name = 's!avatar',value ='Use it like ``mv!avatar or mv!avatar @user``',inline = False)
-        embed.add_field(name = 's!userinfo',value ='Use it like s!userinfo @user',inline = False)
-        embed.add_field(name = 's!poll ',value ='Use it like ``mv!poll "Question" "Option1" "Option2" ..... "Option9"``.',inline = False)
-        embed.add_field(name = 's!guess ',value ='To play guess game use ``mv!guess <number> and number should be between 1-10``',inline = False)
-        embed.add_field(name = 's!happybirthday @user ',value ='To wish someone happy birthday',inline = False)
-        embed.add_field(name=  's!sorry',value ='To say sorry eneyone
-	await client.send_message(user,embed=embed)
-
 
 @client.command(pass_context = True)
 async def happybirthday(ctx, *, msg = None):
