@@ -51,12 +51,13 @@ async def info(ctx):
 
     await client.say('***THIS BOT IS MADE BY SOYAL AND IF YOU NEED TO INVITE THIS BOT SO WRITE `sk!botinvite` THANKS***')
 
-@client.command(pass_context = True)
+@client.command(pass_context = False)
 
 async def botinvite(ctx):
 
     await client.say('https://discordapp.com/api/oauth2/authorize?client_id=518672070377209857&permissions=8&scope=bot')
 
+await clint.say (check your dm 📨 ,inline = True)
 
 
 @client.command(pass_context=True)  
