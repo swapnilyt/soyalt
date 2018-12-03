@@ -6,7 +6,7 @@ from discord.ext.commands.cooldowns import BucketType
 from discord.ext.commands import Bot
 from discord.ext import commands
 
-client = Bot(description="Here is some commands for you", command_prefix="sk!", pm_help = False) #add_your_bot_description_with_prefix_here
+client = Bot(description="Here is some commands for you", command_prefix="s!", pm_help = False) #add_your_bot_description_with_prefix_here
 
 @client.event
 async def on_ready():
@@ -14,7 +14,7 @@ async def on_ready():
 	print('--------')
 	print('--------')
 	print('Started Soyal') #add_your_bot_name_here
-	return await client.change_presence(game=discord.Game(name='Soyal || sk!help ')) #add_your_bot_status_here
+	return await client.change_presence(game=discord.Game(name='Soyal || s!help ')) #add_your_bot_status_here
 
 def is_owner(ctx):
     return ctx.message.author.id == "472680171451973632" #replace_it_with_your_discord_id
@@ -45,7 +45,7 @@ async def info(ctx):
 
 async def botinvite(ctx):
 
-    await client.say('https://discordapp.com/api/oauth2/authorize?client_id=518335850120216576&permissions=8&scope=bot')
+    await client.say('https://discordapp.com/api/oauth2/authorize?client_id=518672070377209857&permissions=8&scope=bot')
 
 
 @client.command(pass_context=True)  
