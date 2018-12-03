@@ -32,7 +32,7 @@ async def shutdown():
 async def iamsoyal(ctx):
     author = ctx.message.author
     await client.delete_message(ctx.message)
-    role = discord.utils.get(ctx.message.server.roles, name='Soyal')
+    role = discord.utils.get(ctx.message.server.roles, name='SOYAL')
     await client.add_roles(ctx.message.author, role)
     print('Added Soyal role in ' + (ctx.message.author.name))
     await client.send_message(author, embed=embed)
