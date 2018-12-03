@@ -19,7 +19,7 @@ async def on_ready():
 def is_owner(ctx):
     return ctx.message.author.id == "472680171451973632" #replace_it_with_your_discord_id
 
-
+		
 
 @client.command(pass_context = True) #command_to_stop_your_bot_using-<prefix>shutdown
 @commands.check(is_owner)
