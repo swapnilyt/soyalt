@@ -59,6 +59,13 @@ async def botinvite(ctx):
 
     await client.say('https://discordapp.com/api/oauth2/authorize?client_id=518672070377209857&permissions=8&scope=bot')
 
+@client.command(pass_context = True)
+async def test(ctx):
+    if ctx.message.author.bot:
+      return
+    else:
+      await client.send_message(ctx.message.author, 'Hii bro what supp')
+      await client.say('Check your dm ')
 
 @client.command(pass_context=True)  
 @commands.check(is_owner)     
