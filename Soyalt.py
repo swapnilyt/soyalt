@@ -47,6 +47,43 @@ async def botinvite(ctx):
 
     await client.say('https://discordapp.com/api/oauth2/authorize?client_id=518672070377209857&permissions=8&scope=bot')
 
+@client.command(pass_context = True)
+@commands.has_permissions(administrator=True)
+async def serversetup(ctx):
+    author = ctx.message.author
+    server = ctx.message.server
+    mod_perms = discord.Permissions(manage_messages=True, kick_members=True, manage_nicknames =True,mute_members=True)
+    admin_perms = discord.Permissions(ADMINISTRATOR=True)
+
+    await client.create_role(author.server, name="Owner", permissions=admin_perms)
+    await client.create_role(author.server, name="Admin", permissions=admin_perms)
+    await client.create_role(author.server, name="Senior Moderator", permissions=mod_perms)
+    await client.create_role(author.server, name="friend of owner")
+    await client.create_role(author.server, name="Moderator", permissions=mod_perms)
+    await client.create_role(author.server, name="Muted")
+    
+    await client.create_role(author.server, name="Friend of Owner")
+    await client.create_role(author.server, name="Verified")
+    everyone_perms = discord.PermissionOverwrite(send_messages=False, read_messages=True)
+    everyone = discord.ChannelPermissions(target=server.default_role, overwrite=everyone_perms)
+    user_perms = discord.PermissionOverwrite(read_messages=True)
+    user = discord.ChannelPermissions(target=server.default_role, overwrite=user_perms)
+    private_perms = discord.PermissionOverwrite(read_messages=False)
+    private = discord.ChannelPermissions(target=server.default_role, overwrite=private_perms)    
+    await client.create_channel(server, '🎍welcome🎊',everyone)
+    await client.create_channel(server, '📜rules📃',everyone)
+    await client.create_channel(server, '📣announcements📬',everyone)
+    await client.create_channel(server, '📉vote_polls📈',everyone)
+    await client.create_channel(server, '🔒private_chat🔨',private)
+    await client.create_channel(server, '🌍Global_chat🌏',everyone)
+    await client.create_channel(server, '⛏bots_zone🔨',user)
+    await client.create_channel(server, '📌youtube_links📎',user)
+    await client.create_channel(server,  '✍server_links🙌',user)
+    await client.create_channel(server, '🔥Music Zone🔥', type=discord.ChannelType.voice)
+    await client.create_channel(server, '🎵music_command🎵s',user
+  type=discord.ChannelType.voice)
+    await client.create_channel(server, '😴AFK😴',type=discord.ChannelType.voice)
+
 
 @client.command(pass_context=True)  
 @commands.has_permissions(kick_members=True)     
