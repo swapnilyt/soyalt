@@ -38,7 +38,15 @@ async def iamsoyal(ctx):
     await client.send_message(author, embed=embed)
 
 
-.
+
+	      
+@client.command(pass_context = True)
+@commands.has_permissions(administrator=True)
+async def emojiids(ctx):
+  for emoji in ctx.message.author.server.emojis:
+    print(f"<:{emoji.name}:{emoji.id}>")
+    print(" ")    
+	
 @client.command(pass_context = True)
 
 async def info(ctx):
