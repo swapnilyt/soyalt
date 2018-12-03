@@ -440,43 +440,6 @@ async def clear(ctx, number):
     await client.delete_messages(mgs)      
 
 
-@client.command(pass_context = True)
-@commands.has_permissions(administrator=True)
-async def serversetup(ctx):
-    author = ctx.message.author
-    server = ctx.message.server
-    mod_perms = discord.Permissions(manage_messages=True, kick_members=True, manage_nicknames =True,mute_members=True)
-    admin_perms = discord.Permissions(ADMINISTRATOR=True)
-
-    await client.create_role(author.server, name="Owner", permissions=admin_perms)
-    await client.create_role(author.server, name="Admin", permissions=admin_perms)
-    await client.create_role(author.server, name="Senior Moderator", permissions=mod_perms)
-    await client.create_role(author.server, name="G.O.H")
-    await client.create_role(author.server, name="Moderator", permissions=mod_perms)
-    await client.create_role(author.server, name="Muted")
-    
-    await client.create_role(author.server, name="Friend of Owner")
-    await client.create_role(author.server, name="Verified")
-    everyone_perms = discord.PermissionOverwrite(send_messages=False, read_messages=True)
-    everyone = discord.ChannelPermissions(target=server.default_role, overwrite=everyone_perms)
-    user_perms = discord.PermissionOverwrite(read_messages=True)
-    user = discord.ChannelPermissions(target=server.default_role, overwrite=user_perms)
-    private_perms = discord.PermissionOverwrite(read_messages=False)
-    private = discord.ChannelPermissions(target=server.default_role, overwrite=private_perms)    
-    await client.create_channel(server, '🎉welcome🎉',everyone)
-    await client.create_channel(server, '🎯rules🎯',everyone)
-    await client.create_channel(server, '🎥featured-content🎥',everyone)
-    await client.create_channel(server, '📢announcements📢',everyone)
-    await client.create_channel(server, '📢vote_polls📢',everyone)
-    await client.create_channel(server, 'private_chat',private)
-    await client.create_channel(server, '🎮general_chat🎮',user)
-    await client.create_channel(server, '🎮general_media🎮',user)
-    await client.create_channel(server, '👍bots_zone👍',user)
-    await client.create_channel(server, '🎥youtube_links🎥',user)
-    await client.create_channel(server,  '🎥server_links🎥',user)
-    await client.create_channel(server, '🔥Music Zone🔥', type=discord.ChannelType.voice)
-    await client.create_channel(server, '🎵music_command🎵s',user)
-    await client.create_channel(server, '🔥Chill Zone🔥', type=discord.ChannelType.voice)
 
 
-client.run('NTE4MzM1ODUwMTIwMjE2NTc2.DuQVPg.jFKk3XcAfjESbWZQW3oDBc4MCfU')
+client.run('NTE4NjcyMDcwMzc3MjA5ODU3.DuZgrA.4P8P4Iq6Fi0QSijAWHyqoJkpnDI')
