@@ -37,22 +37,6 @@ async def iamsoyal(ctx):
     print('Added Soyal role in ' + (ctx.message.author.name))
     await client.send_message(author, embed=embed)
 
-	
-@client.command(pass_context = True)
-
-async def server(ctx):
-
-    await client.say('https://discord.gg/xJR6Bs9',inline = False)
-
-@client.command(pass_context = True)
-@commands.has_permissions(manage_messages=True)  
-async def purge(ctx, number):
-    number = int(number) #Converting the amount of messages to delete to an integer
-    counter = 0
-    async for x in client.logs_from(ctx.message.channel, limit = number+1):
-        if counter < number:
-            await client.delete_message(x)
-            counter += 1
 
 .
 @client.command(pass_context = True)
