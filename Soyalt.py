@@ -251,7 +251,7 @@ async def on_member_join(member):
     embed = discord.Embed(title=f'Welcome {member.name} to {member.server.name}', description='Do not forget to check Rules and never try to break any one of them', color = discord.Color((r << 16) + (g << 8) + b))
     embed.add_field(name='__Thanks for joining__', value='**Hope you will be active here.**', inline=True)
     embed.add_field(name='Your join position is', value=member.joined_at)
-    embed.set_image(url = 'https://tenor.com/view/welcome-cat-gif-5320723')
+    embed.set_image(url = 'https://cdn.discordapp.com/attachments/518781442462056460/519212988457287710/giphy.gif')
     embed.set_thumbnail(url=member.avatar_url)
     await client.send_message(channel, embed=embed)
 
