@@ -48,21 +48,7 @@ async def iamsoyal(ctx):
         await client.add_roles(ctx.message.author, role)
         print('Added Soyalk role in ' + (ctx.message.author.name))
         await client.send_message(author, embed=embed)
-	
 
-@client.command(pass_context = True)
-
-async def hii(ctx):
-await client.say('hii bro kese ho`)
-	reaction1 = '🇲'
-      reaction2 = '🇬'
-      reaction3 = '🏵'
-      reaction4 = '📱'
-      await client.add_reaction( reaction1)
-      await client.add_reaction( reaction2)
-      await client.add_reaction( reaction3)
-      await client.add_reaction( reaction4)
-      
 		 
 @client.command(pass_context = True)
 @commands.has_permissions(administrator=True)
