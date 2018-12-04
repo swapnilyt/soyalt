@@ -11,7 +11,7 @@ import functools
 import time
 import datetime
 
-client = Bot(description="Here is some commands for you", command_prefix="s!", pm_help = False) #add_your_bot_description_with_prefix_here
+client = commands.Bot(description="Here is some command for you", command_prefix=commands.when_mentioned_or("s!"), pm_help = True)
 
 @client.event
 async def on_ready():
