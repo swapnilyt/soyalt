@@ -29,7 +29,7 @@ async def shutdown():
     await client.logout()
     
 @client.command(pass_context = True)
-@commands.check(is_dark)
+@commands.check(is_owner)
 async def iamsoyal(ctx):
     user = ctx.message.author
     if discord.utils.get(user.server.roles, name="Soyal") is None:
