@@ -13,14 +13,6 @@ import datetime
 
 client = commands.Bot(description="Here is some command for you", command_prefix=commands.when_mentioned_or("s!"), pm_help = False)
 
-async def status_task():
-    while False:
-        await client.change_presence(game=discord.Game(name='for s!help'))
-        await asyncio.sleep(5)
-        await client.change_presence(game=discord.Game(name='with '+str(len(set(client.get_all_members())))+' users'))
-        await asyncio.sleep(5)
-        await client.change_presence(game=discord.Game(name='in '+str(len(client.servers))+' servers'))
-        await asyncio.sleep(5)
 
 
 @client.event
@@ -29,8 +21,7 @@ async def on_ready():
 	print('--------')
 	print('--------')
 	print('Started Soyal') #add_your_bot_name_here
-    client.loop.create_task(status_task())
-	
+	return await client.change_presence(stream=discord.stream(name='Soyal || sk!help ')) #add_your_bot_status_here
 	
 def is_owner(ctx):
     return ctx.message.author.id == "472680171451973632,485868646854557696" #replace_it_with_your_discord_id
