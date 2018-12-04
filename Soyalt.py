@@ -475,7 +475,7 @@ async def setuppartner(ctx):
       server = ctx.message.server
       everyone_perms = discord.PermissionOverwrite(send_messages=False, read_messages=True)
       everyone = discord.ChannelPermissions(target=server.default_role, overwrite=everyone_perms)
-      await client.create_channel(server, '★-multiverse-partner-★',everyone)
+      await client.create_channel(server, '★-Soyal-partner-★',everyone)
       message = "░▒▓█►─═ Soyal offical ═─◄█▓▒░ \n Our server link: https://discord.gg/xJR6Bs9 \n Here's a friendly community where you can enjoy. Here people are active . It's amazing also we have so many bots like- tatsumaki, pokecord, unbeliva boat,etc . \n Features: \n =>Verification \n =>Get answers of any types of questions \n => Active Staffs and Support =>Diverse server =>------------------------------"
       channel = ctx.message.server.channel.name == "★-Soyal-partner-★"
       await client.send_message(channel, embed=embed) 
