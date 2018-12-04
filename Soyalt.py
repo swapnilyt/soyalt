@@ -2,6 +2,7 @@ import discord
 import asyncio
 import random
 import colorsys
+import os
 import time
 import datetime
 from discord.ext.commands.cooldowns import BucketType
