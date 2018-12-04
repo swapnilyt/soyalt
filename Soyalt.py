@@ -14,7 +14,7 @@ import datetime
 client = commands.Bot(description="Here is some command for you", command_prefix=commands.when_mentioned_or("s!"), pm_help = False)
 
 async def status_task():
-    while True:
+    while False:
         await client.change_presence(game=discord.Game(name='for s!help'))
         await asyncio.sleep(5)
         await client.change_presence(game=discord.Game(name='with '+str(len(set(client.get_all_members())))+' users'))
