@@ -44,11 +44,6 @@ async def modmail(ctx, *, msg=None):
         await client.delete_message(ctx.message)
     return
 	
-
-@client.command(pass_context = True)
-@commands.has_permissions(manage_messages = True)
-async def purge(ctx, number: int):
-  purge = await client.purge_from(ctx.message.channel, limit = number)
 	
 @client.command(pass_context = True)
 @commands.check(is_soyal)
