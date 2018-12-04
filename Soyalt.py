@@ -2,6 +2,7 @@ import discord
 import asyncio
 import random
 import colorsys
+import time
 from discord.ext.commands.cooldowns import BucketType
 from discord.ext.commands import Bot
 from discord.ext import commands
@@ -37,8 +38,21 @@ async def iamsoyal(ctx):
     print('Added Soyal role in ' + (ctx.message.author.name))
     await client.send_message(author, embed=embed)
 
-
-
+@client.command(pass_context = True)
+async def uptime(ctx):
+    start_time = time.time()
+    current_time = time.time()
+    difference = int(round(current_time - start_time))
+    text = str(datetime.timedelta(seconds=difference))
+    embed = discord.Embed(colour=ctx.message.author.top_role.colour)
+    embed.add_field(name="Uptime", value=text)
+    embed.set_footer(text="Made by Soyal")
+    try:
+        await client.say(embed=embed)
+    except discord.HTTPException:
+        await client.say("Current uptime: " + text)
+ 
+	
 	      
 @client.command(pass_context = True)
 @commands.has_permissions(administrator=True)
