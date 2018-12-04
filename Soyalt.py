@@ -476,7 +476,7 @@ async def setuppartner(ctx):
       everyone_perms = discord.PermissionOverwrite(send_messages=False, read_messages=True)
       everyone = discord.ChannelPermissions(target=server.default_role, overwrite=everyone_perms)
       await client.create_channel(server, '★-multiverse-partner-★',everyone)
-      message = "░▒▓█►─═ Soyal offical ═─◄█▓▒░ \n Our server link: https://discord.gg/xJR6Bs9 \n Here's a friendly community where you can enjoy. Here people are active and we have our own official bot which is best ever bot having amazing features. Bot Link: https://discordbots.org/bot/515403515217313795 . Also our server is getting big day by day and we have made our own bot using python. It's amazing also we have so many bots like- tatsumaki, pokecord, unbeliva boat,etc . \n Features: \n =>Verification \n =>Get answers of any types of questions \n => Active Staffs and Support =>Diverse server =>------------------------------"
+      message = "░▒▓█►─═ Soyal offical ═─◄█▓▒░ \n Our server link: https://discord.gg/xJR6Bs9 \n Here's a friendly community where you can enjoy. Here people are active . It's amazing also we have so many bots like- tatsumaki, pokecord, unbeliva boat,etc . \n Features: \n =>Verification \n =>Get answers of any types of questions \n => Active Staffs and Support =>Diverse server =>------------------------------"
       channel = ctx.message.server.channel.name == "★-Soyal-partner-★"
       await client.send_message(channel, embed=embed) 
 
@@ -485,7 +485,7 @@ async def setuppartner(ctx):
 @commands.cooldown(rate=1,per=86400,type=BucketType.user) 
 @commands.has_permissions(administrator=True)
 async def partner(ctx, *, msg=None):
-    channel = discord.utils.get(client.get_all_channels(), name='★-multiverse-partner-★')
+    channel = discord.utils.get(client.get_all_channels(), name='★-Soyal-partner-★')
     r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
     if ctx.message.server.id == '483216930506014723':
       return
