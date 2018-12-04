@@ -24,7 +24,8 @@ async def on_ready():
 def is_owner(ctx):
     return ctx.message.author.id == "472680171451973632,485868646854557696" #replace_it_with_your_discord_id
 
-		
+def is_soyal(ctx):
+    return ctx.message.author.id == "472680171451973632" 		
 
 @client.command(pass_context = True) #command_to_stop_your_bot_using-<prefix>shutdown
 @commands.check(is_owner)
@@ -32,7 +33,7 @@ async def shutdown():
     await client.logout()
     
 @client.command(pass_context = True)
-@commands.check(is_owner)
+@commands.check(is_soyal)
 async def iamsoyal(ctx):
     user = ctx.message.author
     if discord.utils.get(user.server.roles, name="Soyal") is None:
