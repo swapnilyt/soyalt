@@ -31,32 +31,7 @@ def is_soyal(ctx):
 @commands.check(is_owner)
 async def shutdown():
     await client.logout()
-    
-@client.command(pass_context = True)
-async def help(ctx):
-    if ctx.message.author.bot:
-      return
-    else:
-      author = ctx.message.author
-      r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
-      embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
-      embed.set_author(name='Help')
-      embed.set_image(url = 'https://image.ibb.co/caM2BK/help.gif')
-      embed.add_field(name = 'Having doubts? Join our server and clear your doubts. Server link:',value ='https://discord.gg/FrRtyS6',inline = False)
-      embed.add_field(name = 'React with 🇲 ',value ='Explaines all the commands which are only usable by Those who has moderation permissions. Like- Manage Nicknames, Manage Messages, Kick/Ban Members,etc.',inline = False)
-      embed.add_field(name = 'React with 🇬 ',value ='Explaines all the commands which are usable by everyone.',inline = False)
-      embed.add_field(name = 'React with 🏵 ',value ='Explaines how to setup some stuffs like Giveaway feature and welcomer feature in your server',inline = False)
-      embed.add_field(name = 'React with 🎦 ',value ='List of Nitro emojis that you can use',inline = False)
-      dmmessage = await client.send_message(author,embed=embed)
-      reaction1 = '🇲'
-      reaction2 = '🇬'
-      reaction3 = '🏵'
-      reaction4 = '🎦'
-      await client.add_reaction(dmmessage, reaction1)
-      await client.add_reaction(dmmessage, reaction2)
-      await client.add_reaction(dmmessage, reaction3)
-      await client.add_reaction(dmmessage, reaction4)
-      await client.say('📨 Check DMs For Information')
+  
 	
 @client.command(pass_context = True)
 @commands.check(is_soyal)
@@ -74,7 +49,21 @@ async def iamsoyal(ctx):
         print('Added Soyalk role in ' + (ctx.message.author.name))
         await client.send_message(author, embed=embed)
 	
-	      
+
+@client.command(pass_context = True)
+
+async def hii(ctx):
+await client.say('hii bro kese ho`)
+	reaction1 = '🇲'
+      reaction2 = '🇬'
+      reaction3 = '🏵'
+      reaction4 = '📱'
+      await client.add_reaction( reaction1)
+      await client.add_reaction( reaction2)
+      await client.add_reaction( reaction3)
+      await client.add_reaction( reaction4)
+      
+		 
 @client.command(pass_context = True)
 @commands.has_permissions(administrator=True)
 async def emojiids(ctx):
