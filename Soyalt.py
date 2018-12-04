@@ -1,13 +1,15 @@
 import discord
+from discord.ext import commands
+from discord.ext.commands.cooldowns import BucketType
 import asyncio
-import random
 import colorsys
+import random
+import platform
+from discord import Game, Embed, Color, Status, ChannelType
 import os
+import functools
 import time
 import datetime
-from discord.ext.commands.cooldowns import BucketType
-from discord.ext.commands import Bot
-from discord.ext import commands
 
 client = Bot(description="Here is some commands for you", command_prefix="s!", pm_help = False) #add_your_bot_description_with_prefix_here
 
