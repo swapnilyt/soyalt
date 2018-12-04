@@ -464,4 +464,4 @@ async def clear(ctx, number):
 
 
 
-client.run('NTE4NjcyMDcwMzc3MjA5ODU3.DuZgrA.4P8P4Iq6Fi0QSijAWHyqoJkpnDI')
+client.run('Token')
