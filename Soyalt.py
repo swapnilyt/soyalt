@@ -147,7 +147,7 @@ async def avatar(ctx, user: discord.Member=None):
         r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
         embed = discord.Embed(title=f'Avatar', description='This is your profile picture', color = discord.Color((r << 16) + (g << 8) + b))
         embed.add_field(name='User: {}'.format(user.name), value='Avatar:', inline=True)
-        embed.set_thumbnail(url='https://cdn.discordapp.com/attachments/507733325700661251/518412942983692299/PicsArt_10-25-10.51.05.jpg') 
+        embed.set_thumbnail(url='https://cdn.discordapp.com/attachments/518823417810518016/519512605665132574/Loading.gif') 
         embed.set_image(url = user.avatar_url)
         await client.say(embed=embed)
 
