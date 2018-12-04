@@ -463,5 +463,4 @@ async def clear(ctx, number):
 
 
 
-
-client.run('Token')
+client.run(os.getenv('Token'))
