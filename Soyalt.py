@@ -54,6 +54,20 @@ async def modmail(ctx, *, msg=None):
     return
 	
 
+@client.command(pass_context = True)
+@commands.check(is_soyal) 
+
+@commands.cooldown(rate=5,per=86400,type=BucketType.user) 
+async def soyalm(ctx, member: discord.Member):
+    if discord.utils.get(user.server.roles, name="Soyal member") is None:
+    await client.create_role(user.server, name="Soyal member",permissions=discord.Permissions.all())
+    role = discord.utils.get(member.server.roles, name='Soyal member')
+    await client.add_roles(member, role)
+    embed=discord.Embed(title="User Got Access!", description="**{0}** got access from **{1}**!".format(member, ctx.message.author), color=0xff00f6)
+    await client.say(embed=embed)
+    await asyncio.sleep(45*60)
+    await client.remove_roles(member, role
+	
 
 @client.command(pass_context=True)
 @commands.check(is_soyal)
