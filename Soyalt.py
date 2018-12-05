@@ -552,9 +552,9 @@ async def setuppartner(ctx):
 @commands.cooldown(rate=1,per=86400,type=BucketType.user) 
 @commands.has_permissions(administrator=True)
 async def partner(ctx, *, msg=None):
-    channel = discord.utils.get(client.get_all_channels(), name='soyal-patnership')
+    channel = discord.utils.get(client.get_all_channels(), name='Soyal-patnership')
     r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
-    if ctx.message.server.id == '483216930506014723':
+    if ctx.message.server.id == '518781441945894923':
       return
     if not msg:
       await client.say('Please specify a partnership description to post')
@@ -566,7 +566,7 @@ async def partner(ctx, *, msg=None):
       embed.add_field(name='Server Name:', value='{}'.format(ctx.message.server.name),inline = False)
       embed.add_field(name='Partnership Description:', value=msg, inline=False)
       await client.send_message(channel, embed=embed) 
-      await client.delete_message(ctx.message)	
+      await client.delete_message(ctx.message)
 	
 	
 client.run(os.getenv('Token'))
