@@ -536,37 +536,6 @@ async def on_message_delete(message):
           embed.add_field(name = 'Channel:',value ='{}'.format(message.channel.name),inline = False)
           await client.send_message(logchannel,  embed=embed)	
 	
-
-@client.command(pass_context = True)
-@commands.has_permissions(administrator=True)
-async def setuppartner(ctx):
-    if ctx.message.author.bot:
-      return
-    else:
-      server = ctx.message.server
-      everyone_perms = discord.PermissionOverwrite(send_messages=False, read_messages=True)
-      everyone = discord.ChannelPermissions(target=server.default_role, overwrite=everyone_perms)
-      await client.create_channel(server, 'Soyal-patnership',everyone)
-	
-@client.command(pass_context=True)
-@commands.cooldown(rate=1,per=86400,type=BucketType.user) 
-@commands.has_permissions(administrator=True)
-async def partner(ctx, *, msg=None):
-    channel = discord.utils.get(client.get_all_channels(), name='Soyal-patnership')
-    r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
-    if ctx.message.server.id == '518781441945894923':
-      return
-    if not msg:
-      await client.say('Please specify a partnership description to post')
-    else:
-      embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
-      embed.add_field(name='Discord Partner', value='-------------------',inline = False) 
-      embed.add_field(name='Partner ID:', value='{}'.format(ctx.message.author.id),inline = False)
-      embed.add_field(name='Partner Name:', value='{}'.format(ctx.message.author.name),inline = False)
-      embed.add_field(name='Server Name:', value='{}'.format(ctx.message.server.name),inline = False)
-      embed.add_field(name='Partnership Description:', value=msg, inline=False)
-      await client.send_message(channel, embed=embed) 
-      await client.delete_message(ctx.message)
 	
 	
 client.run(os.getenv('Token'))
