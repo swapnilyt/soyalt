@@ -176,6 +176,32 @@ async def happybirthday(ctx, *, msg = None):
 
 
 
+
+@client.command(pass_context = True)
+@commands.has_permissions(administrator=True)
+async def setuplog(ctx):
+    if ctx.message.author.bot:
+      return
+    else:
+      server = ctx.message.server
+      everyone_perms = discord.PermissionOverwrite(send_messages=False, read_messages=True)
+      everyone = discord.ChannelPermissions(target=server.default_role, overwrite=everyone_perms)
+      await client.create_channel(server, 'soyal-log',everyone)
+
+	
+
+@client.command(pass_context = True)
+@commands.has_permissions(administrator=True)
+async def setupwelcome(ctx):
+    if ctx.message.author.bot:
+      return
+    else:
+      server = ctx.message.server
+      everyone_perms = discord.PermissionOverwrite(send_messages=False, read_messages=True)
+      everyone = discord.ChannelPermissions(target=server.default_role, overwrite=everyone_perms)
+      await client.create_channel(server, '★彡-welcome-彡★',everyone)
+	
+	
 @client.command(pass_context = True)
 @commands.has_permissions(administrator=True)
 async def rolesetup(ctx):
