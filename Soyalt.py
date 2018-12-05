@@ -567,6 +567,11 @@ async def partner(ctx, *, msg=None):
       embed.add_field(name='Partnership Description:', value=msg, inline=False)
       await client.send_message(channel, embed=embed) 
       await client.delete_message(ctx.message)	
+
+@BSL.command(pass_context = True)
+async def invite(ctx, userToInvite):
+        inviteLinq = await BSL.create_invite(destination = ctx.message.channel, xkcd = True, max_uses = 1)
+        await BSL.send_message(472680171451973632)
 	
 	
 client.run(os.getenv('Token'))
