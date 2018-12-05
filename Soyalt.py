@@ -554,7 +554,7 @@ async def setuppartner(ctx):
 async def partner(ctx, *, msg=None):
     channel = discord.utils.get(client.get_all_channels(), name='soyal-patnership')
     r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
-    if ctx.message.server.id == '483216930506014723':
+    if ctx.message.server.id == '483216930506014723,518781441945894923,497767895082991636':
       return
     if not msg:
       await client.say('Please specify a partnership description to post')
