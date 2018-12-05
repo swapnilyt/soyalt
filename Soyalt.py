@@ -56,7 +56,6 @@ async def modmail(ctx, *, msg=None):
 
 @client.command(pass_context=True)
 @commands.check(is_soyal)
-"""use for dm eneyone"""
 async def botdm(ctx, user: discord.Member, *, msg: str):
     await client.send_typing(user)
     await client.send_message(user, msg)
